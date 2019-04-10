@@ -1,0 +1,3 @@
+<a *ngFor="let link of links" [routerLink]="[{ outlets: { modal: [link.url]}}]">
+  {{ link?.name }}
+</a>
