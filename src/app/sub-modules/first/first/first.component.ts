@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
-import { CustomModalComponent } from 'src/app/custom-modal/custom-modal/custom-modal.component';
+import { CustomModalComponent } from '../../../custom-modal/custom-modal/custom-modal.component';
 
 @Component({
   selector: 'app-first',
