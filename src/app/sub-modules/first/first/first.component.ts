@@ -19,15 +19,16 @@ export class FirstComponent implements OnInit {
   }
 
   public test() {
-    this.dialog.open(CustomModalComponent,
-      {
-        width: '400px',
-        height: '400px'
-      }).afterClosed().subscribe(
-        () => {
-          this.router.navigate([{outlets: { modal: null }}]);
-        }
-      );
+    // this.dialog.open(CustomModalComponent,
+    //   {
+    //     width: '400px',
+    //     height: '400px'
+    //   }).afterClosed().subscribe(
+    //     () => {
+    //       this.router.navigate([{outlets: { modal: null }}]);
+    //     }
+    //   );
+    this.router.navigate(['/', { outlets: { modal: 'modal'}}]);
   }
 
 }

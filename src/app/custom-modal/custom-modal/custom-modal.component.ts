@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-custom-modal',
@@ -8,17 +8,23 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CustomModalComponent implements OnInit, OnDestroy {
 
-  constructor(private activetedRoute: ActivatedRoute) { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
 
-  public onDeactivate(event): void {
-    console.log(event);
+
+  ngOnDestroy() { }
+
+  close() {
+    this.router.navigate(['/', { outlets: { modal: null }}], { relativeTo: this.activatedRoute.parent})
   }
 
-  ngOnDestroy() {
-    console.log(this.activetedRoute);
+  public overlayClick(): void {
+    this.close();
   }
 
 }

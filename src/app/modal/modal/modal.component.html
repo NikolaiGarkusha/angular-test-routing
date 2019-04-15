@@ -1,3 +1,4 @@
-<a *ngFor="let link of links" [routerLink]="[{ outlets: { modal: [link.url]}}]">
+<!-- <a *ngFor="let link of links" [routerLink]="[{ outlets: { modal: [link.url]}}]"> -->
+<a *ngFor="let link of links" [routerLink]="[link.url]">
   {{ link?.name }}
 </a>

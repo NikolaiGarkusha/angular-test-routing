@@ -20,17 +20,18 @@ export class MainPageComponent implements OnInit {
   }
 
   public test() {
-    this.dialog.open(CustomModalComponent,
-      {
-        width: '400px',
-        height: '400px'
-      }).afterClosed().subscribe(
-        () => {
-          this.router.navigate([{outlets: { modal: null }}], {
-            relativeTo: this.activatedRoute
-        });
-        }
-      );
+    // this.dialog.open(CustomModalComponent,
+    //   {
+    //     width: '400px',
+    //     height: '400px'
+    //   }).afterClosed().subscribe(
+    //     () => {
+    //       console.log(this.activatedRoute);
+    //       this.router.navigate(['/', {outlets: { modal: null }}], { relativeTo: this.activatedRoute.parent });
+    //     }
+    //   );
+    // this.router.navigate(['/', { outlets: { moda}}])
+    this.router.navigate(['/', { outlets: { modal: 'modal'}}]);
   }
 
 }

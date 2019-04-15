@@ -6,6 +6,7 @@ import { SecondComponent } from './sub-modules/second/second/second.component';
 import { UserComponent } from './modal/user/user.component';
 import { PurchaseComponent } from './modal/purchase/purchase.component';
 import { CheckoutComponent } from './modal/checkout/checkout.component';
+import { CustomModalComponent } from './custom-modal/custom-modal/custom-modal.component';
 
 const routes: Routes = [
     {
@@ -21,19 +22,28 @@ const routes: Routes = [
         component: SecondComponent
     },
     {
-        path: 'user',
-        component: UserComponent,
-        outlet: 'modal'
-    },
-    {
-        path: 'purchase',
-        component: PurchaseComponent,
-        outlet: 'modal'
-    },
-    {
-        path: 'checkout',
-        component: CheckoutComponent,
-        outlet: 'modal'
+        path: 'modal',
+        component: CustomModalComponent,
+        outlet: 'modal',
+        children: [
+            {
+                path: 'user',
+                component: UserComponent
+            },
+            {
+                path: 'purchase',
+                component: PurchaseComponent
+            },
+            {
+                path: 'checkout',
+                component: CheckoutComponent
+            },
+            {
+                path: '',
+                pathMatch: 'full',
+                redirectTo: 'user'
+            }
+        ]
     }
 ];
 

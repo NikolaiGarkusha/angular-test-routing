@@ -1,8 +1,8 @@
-<!-- <p>
-  custom-modal works!
-</p>
-<a [routerLink]="[{ outlets: { modal: ['user']}}]">test</a>
-<router-outlet name="modal"></router-outlet> -->
-<app-modal></app-modal>
-<router-outlet name="modal" (deactivate)="onDeactivate($event)"></router-outlet>
-<a [routerLink]="['../', {outlets: {modal: null}}]" mat-dialog-close>Close</a>
+<div class="modal-overlay" (click)="overlayClick()"></div>
+<div class="modal">
+    <app-modal></app-modal>
+    <div class="modal-content">
+        <router-outlet></router-outlet>
+    </div>
+    <button mat-raised-button color="warn" (click)="close()">Close</button>
+</div>
